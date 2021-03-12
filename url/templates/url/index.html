@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+{% load static %}
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>ShortMe</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'url/css/main.css' %}"/>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="index.html" class="logo"><strong>ShortMe</strong> by Valentin</a>
+        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    </div>
+</header>
+
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <header>
+            <h1>Welcome to ShortMe</h1>
+        </header>
+
+        <div class="inner">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <form action="" method="POST">
+                {% csrf_token %}
+{#                <div class="field half first">#}
+{#                    <input name="short" id="{{ form.short_url }}" type="text" placeholder="Short Url">#}
+{#                </div>#}
+{#                <div class="field half">#}
+{#                    <input name="url" id="{{ form.url_link }}" type="url" placeholder="Link URL">#}
+{#                </div>#}
+                {{ form.as_p }}
+                <ul class="actions">
+                    <li><input value="ShortMe" class="button alt" type="submit"></li>
+                </ul>
+            </form>
+
+
+        </div>
+
+    </div>
+    </div>
+</section>
+
+
+<!-- Scripts -->
+<script src="{% static 'url/js/jquery.min.js' %}"></script>
+<script src="{% static 'url/js/skel.min.js' %}"></script>
+<script src="{% static 'url/js/util.js' %}"></script>
+<script src="{% static 'url/js/main.js' %}"></script>
+
+</body>
+</html>
